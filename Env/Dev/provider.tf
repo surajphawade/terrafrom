@@ -1,23 +1,14 @@
-module "azurerm_resource_group" {
-    source = "../../Modules/Azure_Resource_group"
-  
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "4.34.0"
+    }
+  }
 }
 
-module "azurerm_virtual_network" {
-    source = "../../Modules/Azure_Virtual_Network"
-  
-}
+provider "azurerm" {
 
-module "azurerm_subnet" {
-    source = "../../Modules/Azure_Subnet"
-  
-}
-
-module "azurerm_virtual_machine" {
-  source = "../../Modules/Azure_linux_vm"
-}
-
-module "azurerm_public_ip" {
-    source = "../../Modules/Azure_Public_ip"
-  
+  features {}
+  subscription_id = "32bd2260-8449-4526-af4d-a40b9179ba7c"
 }

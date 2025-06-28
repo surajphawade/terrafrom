@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "main" {
-  name                = "nic"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  name                = var.azure_network_interface_name
+  location            = var.Azure_Resource_group_location
+  resource_group_name = var.Azure_Resource_group_Name
 
   ip_configuration {
     name                          = "testconfiguration1"
@@ -12,9 +12,9 @@ resource "azurerm_network_interface" "main" {
 
 
 resource "azurerm_virtual_machine" "main" {
-  name                  = "vm"
-  location              = azurerm_resource_group.example.location
-  resource_group_name   = azurerm_resource_group.example.name
+  name                  = var.azure_virtual_machine_name
+  location              = var.Azure_Resource_group_Name
+  resource_group_name   = var.Azure_Resource_group_Name
   network_interface_ids = [azurerm_network_interface.main.id]
   vm_size               = "Standard_DS1_v2"
 
