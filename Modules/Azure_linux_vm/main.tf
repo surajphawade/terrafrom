@@ -5,7 +5,7 @@ resource "azurerm_network_interface" "main" {
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = azurerm_subnet.internal.id
+    #subnet_id                     = azurerm_subnet.internal.id
     private_ip_address_allocation = "Dynamic"
   }
 }
@@ -13,7 +13,7 @@ resource "azurerm_network_interface" "main" {
 
 resource "azurerm_virtual_machine" "main" {
   name                  = var.azure_virtual_machine_name
-  location              = var.Azure_Resource_group_Name
+  location              = var.Azure_Resource_group_location
   resource_group_name   = var.Azure_Resource_group_Name
   network_interface_ids = [azurerm_network_interface.main.id]
   vm_size               = "Standard_DS1_v2"

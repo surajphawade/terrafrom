@@ -5,7 +5,7 @@ variable "Azure_Resource_group_Name" {
 }
 
 variable "Azure_Resource_group_location" {
-    default = "Eastus"
+    default = "EastUs"
   
 }
 
